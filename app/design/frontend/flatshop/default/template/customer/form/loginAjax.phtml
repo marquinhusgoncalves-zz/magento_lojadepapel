@@ -1,0 +1,193 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see Mage_Customer_Block_Form_Login
+ */
+?>
+<div class="account-login">
+	<div class="close-button"><i class="fa fa-times"></i></div>
+	<div class="page-title">
+		<h1><?php echo $this->__('Login') ?></h1>
+		<div class="link-box">or  <a href="#"><?php echo $this->__('Register') ?></a></div>
+		<div class="clear"></div>
+    </div>
+	<form id="login-form" name="login-form">
+		<div class="indent">
+			<h4><?php echo $this->__('Registered customers') ?></h4>
+			<p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+			<ul class="form-list">
+				<li>
+					<label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+					<div class="input-box">
+						<input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+					</div>
+				</li>
+				<li>
+					<label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+					<div class="input-box">
+						<input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+					</div>
+				</li>
+				<?php echo $this->getChildHtml('form.additional.info'); ?>
+			</ul>
+			<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+			<a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
+			<div class="clear"></div>
+			<div class="error-message"><?php echo $this->__('Error Message: User name or password is incorrect') ?></div>
+		</div>
+		<div class="actions">
+			<button type="button" class="button" onclick="loginSubmit()" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+		</div>
+		<i class="load" />
+	</form>
+    <script type="text/javascript">
+		function loginSubmit(){
+			/* clear message */
+			jQuery('#login-form .error-message').hide();
+			
+			/* validate form */
+			new Validation('login-form').validate();
+			
+			/* check validation */
+			jQuery('#login-form .input-box input').each(function(){
+				if(jQuery(this).hasClass('validation-failed')){
+					jQuery(this).parent().addClass('failed');
+				}else{
+					jQuery(this).parent().removeClass('failed');
+				}
+			});
+			
+			/* if validation passed */
+			if( !jQuery('#login-form .validation-failed').length ){
+				
+				/* show loader */
+				jQuery('#login-form').addClass('ajax-progress');
+				
+				/* ajax progress */
+				var formId = '#login-form';
+				var postUrl = '<?php echo $this->getPostActionUrl() ?>';
+				
+				jQuery.ajax({
+					type: "POST",
+					url: postUrl,
+					data: jQuery(formId).serialize(),
+					cache: false
+				}).done(function(html){
+					jQuery.ajax({
+						type: "POST",
+						url: '<?php echo $this->getUrl('meigeeactions/ajaxstatus/') ?>',
+						cache: false
+					}).done(function(html){
+						data = jQuery(html);
+						
+						if(data.find('.links a.top-link-login').length){ /* check if incorrect username or password */
+							jQuery('#login-form .error-message').show();
+							jQuery('#login-form').removeClass('ajax-progress');
+						}else{ /* replace blocks from ajax request */
+							
+							/* Top cart */
+							jQuery('.top-cart').html(data.find('.top-cart').html());
+							topCart();
+							
+							/* Top links */
+							jQuery('.header-toolbar > ul.links').html(data.find('.header-toolbar > ul.links').html());
+							toplinksIcons();
+							
+							/* Welcome message */
+							jQuery('header#header .welcome-msg').html(data.find('.welcome-msg').html());
+							
+							/* Compare block */
+							if(jQuery('section.block-compare').length){
+								jQuery('section.block-compare').html(data.find('section.block-compare').html());
+								
+								/* remove products from compare */
+								jQuery('section.block-compare a.btn-remove').on('click', function(event){
+									event.preventDefault();
+									jQuery.ajax({
+										type: "POST",
+										url: jQuery(this).attr('href'),
+										cache: false
+									});
+									setTimeout(function(){window.location.reload();}, 2000);
+								});
+							}
+							
+							/* Get Position for Recently Viewed and Compared Blocks */
+							function getBlockPosition(){
+								if(jQuery('section.block-compare').length){
+									blockPosition = jQuery('section.block-compare');
+								}else if(jQuery('section.block-vertical-nav').length){
+									blockPosition = jQuery('section.block-vertical-nav');
+								}else if(jQuery('section.block-layered-nav').length){
+									blockPosition = jQuery('section.block-layered-nav');
+								}else{
+									blockPosition = jQuery('aside.sidebar section:last');
+								}
+								return blockPosition;
+							}
+							
+							/* Viewed block */
+							if(jQuery('section.block-viewed').length){
+								jQuery('section.block-viewed').html(data.find('section.block-viewed').html());
+							}else if(jQuery('aside.sidebar').length && data.find('section.block-viewed').html()){
+								getBlockPosition().after('<section class="block-list block-viewed">'+ data.find('section.block-viewed').html() +'</section>');
+							}
+							
+							/* Compared block */
+							if(jQuery('section.block-compared').length){
+								jQuery('section.block-compared').html(data.find('section.block-compared').html());
+							}else if(jQuery('aside.sidebar').length && data.find('section.block-compared').html()){
+								getBlockPosition().after('<section class="block-list block-compared">'+ data.find('section.block-compared').html() +'</section>');
+							}
+							
+							/* Wishlist block */
+							if(data.find('section.block-wishlist').html()){
+								if(data.find('section#wishlist-slider').html()){isSlider = 'id="wishlist-slider" ';}else{isSlider = '';}
+								
+								if(jQuery('section.block-poll').length){
+									jQuery('section.block-poll').before('<section '+ isSlider +'class="block-wishlist">'+ data.find('section.block-wishlist').html() +'</section>');
+								}else{
+									jQuery('aside.sidebar section:last').after('<section '+ isSlider +'class="block-wishlist">'+ data.find('section.block-wishlist').html() +'</section>');
+								}
+								
+								/* run slider if exists */
+								if(jQuery('#wishlist-slider').length){
+									wishlist_slider();
+									wishlist_set_height();
+								}
+							}
+							
+							/* Reorder block */
+							if(data.find('section.block-reorder').html()){
+								jQuery('aside.sidebar').append('<section class="block-reorder last"><ol class="color-box"><li class="item first odd" /><li class="item even" /><li class="item odd" /><li class="item even" /><li class="item odd" /><li class="item even" /><li class="item odd last" /></ol>'+ data.find('section.block-reorder').html() +'</section>');
+								
+								/* run coloritems */
+								colorItems();
+							}
+							
+							/* Clear Popup and Overlay  */
+							clearAjaxLogin.clearHolder();
+							clearAjaxLogin.clearOverlay();
+						}
+					});
+				});
+			}
+		}
+		
+		/* call ajax pop up */
+		jQuery('.account-login .page-title .link-box a').on('click', function(){
+			ajaxLogin("<?php echo $this->getUrl('meigeeactions/register/') ?>", true);
+			return false;
+		});
+    </script>
+</div>
