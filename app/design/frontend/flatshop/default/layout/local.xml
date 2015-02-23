@@ -92,8 +92,8 @@
 	<reference name="right">
 		<action method="unsetChild"><name>currency</name></action>
 		<action method="unsetChild"><name>cart_sidebar</name></action>
-		<action method="unsetChild"><name>catalog.compare.sidebar</name></action>
-		<action method="unsetChild"><name>right.reports.product.compared</name></action>
+		
+		
 		<action method="unsetChild"><name>right.reports.product.viewed</name></action>
 		<action method="unsetChild"><name>wishlist</name></action>
 		<action method="unsetChild"><name>sale.reorder.sidebar</name></action>
@@ -117,21 +117,13 @@
                 <template>catalog/navigation/left_nav.phtml</template> 
             </action>
         </block>
-        <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar">
-            <action method="setTemplate" ifconfig="meigee_flatshop_sidebar/block_compare/status">
-                <template>catalog/product/compare/sidebar.phtml</template> 
-            </action>
-        </block>
+        
 		<block type="reports/product_viewed" name="sidebar.reports.product.viewed">
             <action method="setTemplate" ifconfig="meigee_flatshop_sidebar/block_viewed/status">
                 <template>reports/product_viewed.phtml</template> 
             </action>
         </block>
-        <block type="reports/product_compared" name="sidebar.reports.product.compared">
-            <action method="setTemplate" ifconfig="meigee_flatshop_sidebar/block_compared/status">
-                <template>reports/product_compared.phtml</template> 
-            </action>
-        </block>
+       
 		<block type="tag/popular" name="tags_popular">
             <action method="setTemplate" ifconfig="meigee_flatshop_sidebar/block_tags/status">
                 <template>tag/popular.phtml</template> 
@@ -225,7 +217,7 @@
                 <template>catalog/navigation/left.phtml</template> 
             </action>
         </block>
-        <block type="paypal/logo" name="paypal.partner.sidebar.logo" template="paypal/partner/logo.phtml"/>
+        
     </reference>
 </catalog_category_default>
 <catalog_category_layered>
@@ -489,7 +481,7 @@
             <action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
             <action method="addLink" translate="label" module="downloadable"><name>downloadable_products</name><path>downloadable/customer/products</path><label>My Downloadable Products</label></action>
         </block>
-        <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
+        
         <remove name="tags_popular"/>
     </reference>
 </customer_account>
@@ -500,7 +492,7 @@
     </reference>
     <reference name="sidebar">
         <action method="unsetChild"><name>sidebar.poll</name></action>
-        <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+        
     </reference>
     <remove name="sidebar.newsletter"/>
 </customer_account_index>

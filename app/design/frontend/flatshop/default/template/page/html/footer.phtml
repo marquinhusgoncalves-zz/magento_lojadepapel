@@ -16,11 +16,7 @@ if(Mage::getStoreConfig('meigee_flatshop_design/footer/footer_columns_wrapper_im
 ?>
 	<div class="container_12">
 		<div class="footer-block">
-			<?php if($this->getChildHtml('footer.newsletter')): ?>
-			<div class="grid_4">
-				<?php echo $this->getChildHtml('footer.newsletter') ?>
-			</div>
-			<?php endif; ?>
+			
 			<?php if ($this->getChildHtml('flatshop_footer_banner')): ?>
 			<div class="grid_8">
 				<div class="footer-banner">
@@ -28,6 +24,11 @@ if(Mage::getStoreConfig('meigee_flatshop_design/footer/footer_columns_wrapper_im
 						echo $this->getChildHtml('flatshop_footer_banner');
 					?>
 				</div>
+			</div>
+			<?php endif; ?>
+			<?php if($this->getChildHtml('footer.newsletter')): ?>
+			<div class="grid_4">
+				<?php echo $this->getChildHtml('footer.newsletter') ?>
 			</div>
 			<?php endif; ?>
 			<div class="clear"></div>
@@ -61,7 +62,7 @@ if(Mage::getStoreConfig('meigee_flatshop_design/footer/footer_columns_wrapper_im
 			if ($static_html = $this->getChildHtml('flatshop_social_links')):
 				echo $static_html;
 			endif; ?>
-			<address><?php echo $this->getCopyright() ?></address>
+			
 			<div class="clear"></div>
 			<?php echo $this->getChildHtml('store_switcher') ?>
 		</div>
