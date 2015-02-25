@@ -7,12 +7,15 @@
 		<a href="#" onclick="wishlistForm.submitAjaxWishlist(this, '<?php echo $_wishlistSubmitUrl ?>','<?php echo $_product->getId()?>'); return false;" class="link-wishlist"><i class="fa fa-heart"></i><?php echo $this->__('Add to Wishlist') ?><span class="add-to-loader" id='ajax_wishlist_loading<?php echo $_product->getId()?>' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></a>
 	</li>
 	<?php endif; ?>
+
+<!--  Retirando a comparação	
 <?php
     $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
 ?>
 <?php if($_compareUrl) : ?>
     <li><span class="separator">|</span> <a href="#" onclick="ajaxCompare('<?php echo $_compareUrl?>','<?php echo $_product->getId()?>'); return false;" class="link-compare"><i class="fa fa-exchange"></i><?php echo $this->__('Add to Compare') ?><span class="add-to-loader" id='ajax_loading<?php echo $_product->getId()?>' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></a></li>
 <?php endif; ?>
+-->
 </ul>
 
 <script type="text/javascript">

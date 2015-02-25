@@ -62,7 +62,7 @@
                         <a class="fancybox category-gallery" title="<?php echo $_productNameStripped; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>"><i class="fa fa-search"></i></a>
                     <?php endif; // End Fancybox ?>
 					<?php if(Mage::getStoreConfig('ajax/general/enabledpro')){ ?>
-					<button type="button" title="<?php echo $this->__('Quick View') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Quick View') ?></span></span></button>
+					<button type="button" title="<?php echo $this->__('Visualização Rápida') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Visualização Rápida') ?></span></span></button>
 					<a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='ajax-fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Test</a>
 					<?php } ?>
                 </div>
@@ -78,18 +78,23 @@
 						<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
 					<?php endif; ?>
 					<div class="desc std">
-						<h3><?php echo $this->__('Quick view:') ?></h3>
+						<h3><?php echo $this->__('Detalhes:') ?></h3>
 						<?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Ver') ?></a>
 					</div>
 					<?php if(Mage::getStoreConfig('ajax/wishlistcompare/enabledpro')){?>
 					 <ul class="add-to-links">
                         <?php if ($this->helper('wishlist')->isAllow()) : ?>
                             <li><a href="#" onclick='ajaxWishlist("<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>","<?php echo $_product->getId()?>");return false;' class="link-wishlist"><i class="fa fa-heart"></i><?php echo $this->__('Add to Wishlist') ?><span id='ajax_wishlist_loading<?php echo $_product->getId()?>' class="ajax-loader-item" style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></a></li>
                         <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+
+
+                       <!-- Retirando a comparação
+                       <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
                             <li><span class="separator">|</span> <a href="#" onclick='ajaxCompare("<?php echo $_compareUrl ?>","<?php echo $_product->getId()?>");return false;' class="link-compare"><i class="fa fa-exchange"></i><?php echo $this->__('Add to Compare') ?><span id='ajax_loading<?php echo $_product->getId()?>' class="ajax-loader-item" style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></a></li>
                         <?php endif; ?>
+                        -->
+                        
                     </ul>
 					<?php }else{?>
 					<ul class="add-to-links">
@@ -179,7 +184,7 @@
 							<?php endif;
 						// End Fancybox ?>
 						<?php if(Mage::getStoreConfig('ajax/general/enabledpro')){ ?>
-						<button type="button" title="<?php echo $this->__('Quick View') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Quick View') ?></span></span></button>
+						<button type="button" title="<?php echo $this->__('Visualização Rápida') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('QVisualização Rápida') ?></span></span></button>
 						<a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='ajax-fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Test</a>
 						<?php } ?>
 					</div>
@@ -253,7 +258,7 @@
 							<?php endif;
 						// End Fancybox ?>
 						<?php if(Mage::getStoreConfig('ajax/general/enabledpro')){ ?>
-						<button type="button" title="<?php echo $this->__('Quick View') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Quick View') ?></span></span></button>
+						<button type="button" title="<?php echo $this->__('Visualização Rápida') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Visualização Rápida') ?></span></span></button>
 						<a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='ajax-fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Test</a>
 						<?php } ?>
 					</div>
@@ -327,7 +332,7 @@
 							<?php endif;
 						// End Fancybox ?>
 						<?php if(Mage::getStoreConfig('ajax/general/enabledpro')){ ?>
-						<button type="button" title="<?php echo $this->__('Quick View') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Quick View') ?></span></span></button>
+						<button type="button" title="<?php echo $this->__('Visualização Rápida') ?>" class="button btn-quick-view" onclick="showOptions('<?php echo $_product->getId()?>')"><span><i class="triangle-topleft"></i><i class="triangle-bottomleft"></i><span><?php echo $this->__('Visualização Rápida') ?></span></span></button>
 						<a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='ajax-fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Test</a>
 						<?php } ?>
 					</div>

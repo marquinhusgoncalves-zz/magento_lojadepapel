@@ -129,9 +129,9 @@
 									<div class="product-name">
 									   <h2><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
 									</div>
-								
+									<!-- Retirei a mensagem seja o primeiro a comentar
 									<?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
-									
+									 -->
 									<?php if ($_product->isAvailable()): ?>
 										<p class="availability in-stock"><?php echo $this->helper('catalog')->__('Availability:') ?> <span><?php echo $this->helper('catalog')->__('In stock') ?></span></p>
 									<?php else: ?>
@@ -144,7 +144,7 @@
 								
 									<?php if ($_product->getShortDescription()):?>
 									   <div class="short-description">
-										   <div class="std"><h2><?php echo $this->__('Details:') ?></h2><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+										   <div class="std"><h2><?php echo $this->__('Detalhes:') ?></h2><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
 									   </div>
 									<?php endif;?>
 								
@@ -384,6 +384,9 @@
 	<?php if(MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('relatedblock') == 'sidebar'): ?>
 	<div class="bottom-product-reviews">
 	<?php endif; ?>
+
+
+	<!--Desabilitando o trecho de comentários 
 	<div class="container_12">
 		<div class="grid_12">
 			<?php // Predefined Static Block
@@ -403,6 +406,8 @@
 		<div class="clear"></div>
 	</div>
 	<?php if(MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('relatedblock') == 'sidebar'): ?>
-	</div>
+	</div> -->
+
+
 	<?php endif; ?>
 </div>
