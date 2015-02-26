@@ -1,11 +1,11 @@
 <div class="page-title">
     <h1 class='h1_opc'><?php echo Mage::getStoreConfig('onepagecheckout/general/title') ?></h1>
-    <?php echo $this->__('Fill in the fields below to complete your purchase!') ?>
+    <?php echo $this->__('Preencha os campos abaixo para concluir a sua compra!') ?>
     <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
     <p class="onepagecheckout_loginarea">
-        <?php echo $this->__('Already registered?') ?>
+        <?php echo $this->__('Já possui uma conta?') ?>
         <a href="javascript:void(0)" class="onepagecheckout_loginlink" onclick='open_login();'>
-            <?php echo $this->__('Click here to login') ?>
+            <?php echo $this->__('Clique aqui para entrar') ?>
         </a>
     </p>
 	<?php 

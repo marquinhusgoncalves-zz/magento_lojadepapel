@@ -804,9 +804,9 @@ p.control input.radio { margin-right:6px; }
 /*.form-list li.fields { margin-right:-15px; }*/
 .form-list .input-box { display:block; clear:both; width:260px; }
 .form-list .field { float:left; width:324px; }
-.form-list input.input-text { width:303px; }
+.form-list input.input-text { width:90%; }
 .form-list textarea { width:254px; height:10em; }
-.form-list select { width:310px; }
+.form-list select { width:90%; }
 .form-list li.wide .input-box { width:535px; }
 .form-list li.wide input.input-text { width:626px; }
 .form-list li.wide textarea { width:627px; }

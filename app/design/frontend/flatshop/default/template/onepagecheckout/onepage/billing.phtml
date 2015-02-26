@@ -5,7 +5,7 @@ $has_addr	= $this->customerHasAddresses();
 ?>
 <div class="onepagecheckout_block">
     <div class="op_block_title">
-		<?php	echo $this->__('Name & Address');	?>
+		<?php	echo $this->__('Nome e Endereço');	?>
     </div>
     <div class="form_fields">
     <?php if ($has_addr){ ?>
@@ -93,7 +93,7 @@ $has_addr	= $this->customerHasAddresses();
 			<?php if ($city_r !== 'hidden') : ?>
 				<div class="short">
 					<label for="billing:city"<?php if ($city_r === 'required'){ echo ' class="required" ';}?>>
-						<?php echo $this->__('City') ?>
+						<?php echo $this->__('Cidade') ?>
 					</label>
 					<?php if ($city_r === 'required'){ echo ' <sup>*</sup> ';}?>
 					<div class="data_area">
@@ -103,7 +103,7 @@ $has_addr	= $this->customerHasAddresses();
 			<?php endif; ?>
 				<div class="short short-2"<?php if($state_r === 'hidden'){ echo ' style="display:none" ';}?>>
 					<label for="billing:region_id"<?php if($state_r === 'required'){ echo ' class="required" ';}?>>
-						<?php echo $this->__('State / Province') ?>
+						<?php echo $this->__('Estado') ?>
 					</label>
 					<?php if($state_r === 'required'){ echo ' <sup>*</sup> ';}?>
 					<div class="data_area">
@@ -129,7 +129,7 @@ $has_addr	= $this->customerHasAddresses();
 				<?php if ($zip_r !== 'hidden') : ?>
 					<div class="short">
 						<label for="billing:postcode"<?php if($zip_r === 'required'){echo ' class="required" ';}?>>
-							<?php echo $this->__('Zip Code') ?>
+							<?php echo $this->__('CEP') ?>
 						</label>
 						<?php if($zip_r === 'required'){echo ' <sup>*</sup>';}?>
 						<div class="data_area">
