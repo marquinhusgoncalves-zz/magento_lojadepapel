@@ -152,7 +152,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
     public function drawMenuItem($children, $level = 1)
     {
         $html = '<div class="itemMenu level' . $level . '">';
-        $keyCurrent = $this->getCurrentCategory()->getId();
+        
         foreach ($children as $child)
         {
             if (is_object($child) && $child->getIsActive())

@@ -45,6 +45,10 @@
 					<?php echo $this->getChildHtml('topLinks') ?>
 					<?php echo $this->getChildHtml('store_language') ?>
 					<?php echo $this->getChildHtml('currency') ?>
+					<?php // Predefined Static Block
+					if ($static_html = $this->getChildHtml('flatshop_social_links')):
+						echo $static_html;
+					endif; ?>
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -55,7 +59,7 @@
 	<?php if(Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'): ?>
 		<div class="header-blocks-wrapper">
 			<div class="container_12">
-				<div class="grid_12">
+				<div class="grid_12" style="text-align: center">
 					<?php echo $this->getChildHtml('flatshop_header_blocks') ?>
 				</div>
 				<div class="clear"></div>

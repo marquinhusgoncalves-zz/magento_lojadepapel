@@ -1336,12 +1336,14 @@ ul.social-links {
 ul.social-links li {
     float:none; 
     padding:0 1px 0 0!important;
+    width: 37px;
+    display: inline-block;
 }
 ul.social-links li a {
     display:block; 
-    width:29px;
-    height:29px;
-	background-color:#171717;
+    width:37px;
+    height:37px;
+	/*background-color:#171717;*/
 	text-align: center;
 	padding:0!important;
     text-decoration:none;
@@ -1353,7 +1355,7 @@ ul.social-links li a {
 ul.social-links li a:hover{text-decoration:none;}
 ul.social-links li a:before{display: none;!important;}
 ul.social-links li a i{
-	font-size:15px;
+	font-size:17px;
 	line-height:2em;
 	color:#444;
 	-moz-transition:color 300ms ease;
@@ -1378,7 +1380,9 @@ header#header .home-button{float:left; padding-right:5px;}
 header#header .logo {
     text-decoration:none;
     overflow:hidden;
-    float:left;    
+    float:left;
+    width: 100%;
+	text-align: center;     
 }
 header#header .logo strong{
     position:absolute; 
@@ -1390,6 +1394,11 @@ header#header .logo strong{
     line-height:0;
     text-indent:-999em; 
     overflow:hidden; 
+}
+header#header .logo img {
+	max-width: 300px;
+	width: 100%;
+	height: auto;
 }
 header#header .quick-access{
 	float: right;
@@ -1520,7 +1529,7 @@ body.floating-header header#header.active .welcome-msg { display: none;}
 body.floating-header header#header.active .quick-access { display: none;}
 body.floating-header header#header.active .nav-container { float: right;}
 body.floating-header header#header.active .nav-container #custommenu { margin-top: 0.5em;}
-body.floating-header header#header.active .nav-container #custommenu.full div.wp-custom-menu-popup { top: 33px !important;}
+body.floating-header header#header.active .nav-container #custommenu.full div.wp-custom-menu-popup { top: 100px !important;}
 
 /* Header Cart ================================================================================ */
 header#header .top-cart { float:right; position:relative; z-index:9999; padding:0;}
@@ -6809,6 +6818,95 @@ body.boxed-layout .customer-account-create .col-main,
 body.boxed-layout .customer-account-logoutsuccess .col-main, 
 body.boxed-layout .catalogsearch-advanced-index .col-main {box-shadow: none !important;}
 
+ /*
+	* Adicionado CSS3 Flip
+	*/	
+    .thumb {
+        display:inline-block;
+        width:260px;
+        height:260px;
+        margin:20px;
+    }
+        .thumb-wrapper {
+            display:block;
+            width:100%;
+            height:100%;
+        }
+        .thumb img {
+            width:100%;
+            height:100%;
+            position:absolute;
+            display:block;            
+                    
+        }
+        
+        .thumb .thumb-detail {
+            display:block;
+            width:100%;
+            height:100%;
+            position:absolute;            
+            background:#fff;        
+        }
+            
+    /*
+    * Without CSS3 Scroll Up Effect
+    */
+    .thumb.scroll {
+        overflow: hidden;
+    }    
+        .thumb.scroll .thumb-detail {
+            bottom:-280px;
+        }
+        
+    /*
+	* CSS3 Flip
+	*/	
+	.thumb.flip {
+		-webkit-perspective:800px;		
+		   -moz-perspective:800px;
+		    -ms-perspective:800px;		   		
+		     -o-perspective:800px;
+  		        perspective:800px;
+	}
+	
+		.thumb.flip .thumb-wrapper {
+			-webkit-transition: -webkit-transform 1s;
+			   -moz-transition: -moz-transform 1s;
+			    -ms-transition: -moz-transform 1s;
+			     -o-transition: -moz-transform 1s;
+			        transition: -moz-transform 1s;
+			-webkit-transform-style: preserve-3d;
+			   -moz-transform-style: preserve-3d;			
+			    -ms-transform-style: preserve-3d;			
+			     -o-transform-style: preserve-3d;			
+					  transform-style: preserve-3d;			
+		}
+		
+		.thumb.flip .thumb-detail {
+			-webkit-transform: rotateY(-180deg);
+			   -moz-transform: rotateY(-180deg);
+			    -ms-transform: rotateY(-180deg);
+			     -o-transform: rotateY(-180deg);
+			        transform: rotateY(-180deg);			   			
+		}
+		
+		.thumb.flip img,
+		.thumb.flip .thumb-detail {
+			-webkit-backface-visibility: hidden;
+			   -moz-backface-visibility: hidden;
+			    -ms-backface-visibility: hidden;
+			     -o-backface-visibility: hidden;
+			        backface-visibility: hidden;
+		}
+		
+		.thumb.flip .flipIt {
+			-webkit-transform: rotateY(-180deg);
+			   -moz-transform: rotateY(-180deg);			
+			    -ms-transform: rotateY(-180deg);			
+			     -o-transform: rotateY(-180deg);			
+			        transform: rotateY(-180deg);			
+		}
+		
 /* Clears ================================================================================ */
 .clearer:after,
 .header-container:after,

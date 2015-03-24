@@ -56,6 +56,7 @@ header#header .nav-container #custommenu div.menu a span i.num{
 	font-family: Arial, sans-serif;
 	display: block;
 	font-size: 0.53em;
+    display: none;
 }
 header#header .nav-container #custommenu div.menu:hover a,
 header#header .nav-container #custommenu div.menu.active a{
@@ -87,7 +88,7 @@ header#header .nav-container #custommenu div.wp-custom-menu-popup.adaptive{
 	width: 100%;
 }
 header#header .nav-container #custommenu.full div.wp-custom-menu-popup{
-	top: 77px !important;
+	top: 170px !important;
 	padding-top: 40px;
 }
 

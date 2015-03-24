@@ -53,7 +53,38 @@ $toTop = Mage::getStoreConfig('meigee_flatshop_general/otheroptions/totop');
 	</script>
 <?php endif; ?>
 
+<!-- Função Javascript adicionada -->
+<script type="text/javascript">
+	$(function () {
+	
 
+		if ($('html').hasClass('csstransforms3d')) {	
+		
+			$('.thumb').removeClass('scroll').addClass('flip');		
+			$('.thumb.flip').hover(
+				function () {
+					$(this).find('.thumb-wrapper').addClass('flipIt');
+				},
+				function () {
+					$(this).find('.thumb-wrapper').removeClass('flipIt');			
+				}
+			);
+			
+		} else {
+
+			$('.thumb').hover(
+				function () {
+					$(this).find('.thumb-detail').stop().animate({bottom:0}, 500, 'easeOutCubic');
+				},
+				function () {
+					$(this).find('.thumb-detail').stop().animate({bottom: ($(this).height() * -1) }, 500, 'easeOutCubic');			
+				}
+			);
+
+		}
+	
+	});
+	</script>
 <!-- Font Replacement -->
 <?php if ($appearance['font'] == 2): ?>
 <?php if ($appearance['default_sizes'] == 0): ?>

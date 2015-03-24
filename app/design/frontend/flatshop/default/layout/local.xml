@@ -45,6 +45,11 @@
         <action method="addJs"><script>meigee/jquery.min.js</script></action>
         <action method="addItem"><type>skin_js</type><name>js/jquery.easing.js</name><params/></action>
 
+        <!-- Adicionei arquivos JS para -->
+		<action method="addJs"><script>meigee/jquery.1.7.1.min.js</script></action>
+       <!--  <action method="addJs"><script>meigee/jquery.easing.1.3.js</script></action> -->
+        <action method="addJs"><script>meigee/modernizr.2.5.3.min.js</script></action>
+
 		<!-- Removing items set in the page.xml we don't need since we're integrating the HTML 5 boilerplate -->
 		<action method="removeItem"><type>skin_js</type><name>js/ie6.js</name><if>lt IE 7</if></action>
 		<action method="removeItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
@@ -157,6 +162,9 @@
 		<block type="cms/block" name="flatshop_header_blocks">
 			<action method="setBlockId"><block_id>flatshop_header_blocks</block_id></action>
 		</block>
+		<block type="cms/block" name="flatshop_social_links">
+			<action method="setBlockId"><block_id>flatshop_social_links</block_id></action>
+		</block>
     </reference>
     <reference name="footer">
     	<!-- Uncomment following code to delete "Advanced Search" and "Orders and Returns" link fro the footer links  -->
@@ -182,9 +190,9 @@
 		<block type="cms/block" name="flatshop_custom_footer">
 			<action method="setBlockId"><block_id>flatshop_custom_footer</block_id></action>
 		</block>
-		<block type="cms/block" name="flatshop_social_links">
+		<!-- <block type="cms/block" name="flatshop_social_links">
 			<action method="setBlockId"><block_id>flatshop_social_links</block_id></action>
-		</block>
+		</block> -->
     </reference>
 	<reference name="wishlist_link"> 
 		<action method="__set">

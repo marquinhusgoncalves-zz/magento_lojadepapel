@@ -2,7 +2,7 @@
     $_rtl           = Mage::getStoreConfig('custom_menu/general/rtl') + 0;
     $_categories    = $this->getStoreCategories();
     if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNodes();
-	$megaMenu = Mage::getStoreConfig('meigee_flatshop_general/menu/megamenufull');
+    $megaMenu = Mage::getStoreConfig('meigee_flatshop_general/menu/megamenufull');
 ?>
 <div class="nav-container">
     <div id="custommenu" class="<?php echo $_rtl ? ' rtl' : ''; ?>">
