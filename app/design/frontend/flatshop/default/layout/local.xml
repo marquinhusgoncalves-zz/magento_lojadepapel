@@ -45,10 +45,8 @@
         <action method="addJs"><script>meigee/jquery.min.js</script></action>
         <action method="addItem"><type>skin_js</type><name>js/jquery.easing.js</name><params/></action>
 
-        <!-- Adicionei arquivos JS para -->
-		<action method="addJs"><script>meigee/jquery.1.7.1.min.js</script></action>
-       <!--  <action method="addJs"><script>meigee/jquery.easing.1.3.js</script></action> -->
-        <action method="addJs"><script>meigee/modernizr.2.5.3.min.js</script></action>
+        <!-- JS adicionado para rodar os botões da home -->
+        <action method="addItem"><type>skin_js</type><name>js/modernizr.2.5.3.min.js</name></action>
 
 		<!-- Removing items set in the page.xml we don't need since we're integrating the HTML 5 boilerplate -->
 		<action method="removeItem"><type>skin_js</type><name>js/ie6.js</name><if>lt IE 7</if></action>

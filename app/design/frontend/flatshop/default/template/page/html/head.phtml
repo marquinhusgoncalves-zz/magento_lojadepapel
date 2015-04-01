@@ -55,29 +55,30 @@ $toTop = Mage::getStoreConfig('meigee_flatshop_general/otheroptions/totop');
 
 <!-- Função Javascript adicionada -->
 <script type="text/javascript">
-	$(function () {
+    var $a = jQuery.noConflict();
+	$a(function () {
 	
 
-		if ($('html').hasClass('csstransforms3d')) {	
+		if ($a('html').hasClass('csstransforms3d')) {	
 		
-			$('.thumb').removeClass('scroll').addClass('flip');		
-			$('.thumb.flip').hover(
+			$a('.thumb').removeClass('scroll').addClass('flip');		
+			$a('.thumb.flip').hover(
 				function () {
-					$(this).find('.thumb-wrapper').addClass('flipIt');
+					$a(this).find('.thumb-wrapper').addClass('flipIt');
 				},
 				function () {
-					$(this).find('.thumb-wrapper').removeClass('flipIt');			
+					$a(this).find('.thumb-wrapper').removeClass('flipIt');			
 				}
 			);
 			
 		} else {
 
-			$('.thumb').hover(
+			$a('.thumb').hover(
 				function () {
-					$(this).find('.thumb-detail').stop().animate({bottom:0}, 500, 'easeOutCubic');
+					$a(this).find('.thumb-detail').stop().animate({bottom:0}, 500, 'easeOutCubic');
 				},
 				function () {
-					$(this).find('.thumb-detail').stop().animate({bottom: ($(this).height() * -1) }, 500, 'easeOutCubic');			
+					$a(this).find('.thumb-detail').stop().animate({bottom: ($a(this).height() * -1) }, 500, 'easeOutCubic');			
 				}
 			);
 

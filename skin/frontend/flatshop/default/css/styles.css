@@ -6851,12 +6851,12 @@ body.boxed-layout .catalogsearch-advanced-index .col-main {box-shadow: none !imp
     /*
     * Without CSS3 Scroll Up Effect
     */
-    .thumb.scroll {
+    /*.thumb.scroll {
         overflow: hidden;
     }    
         .thumb.scroll .thumb-detail {
             bottom:-280px;
-        }
+        }*/
         
     /*
 	* CSS3 Flip
@@ -6879,7 +6879,7 @@ body.boxed-layout .catalogsearch-advanced-index .col-main {box-shadow: none !imp
 			   -moz-transform-style: preserve-3d;			
 			    -ms-transform-style: preserve-3d;			
 			     -o-transform-style: preserve-3d;			
-					  transform-style: preserve-3d;			
+					transform-style: preserve-3d;			
 		}
 		
 		.thumb.flip .thumb-detail {

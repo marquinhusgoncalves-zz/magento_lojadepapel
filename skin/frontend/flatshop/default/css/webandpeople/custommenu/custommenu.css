@@ -385,7 +385,7 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu {
 }
 #menu-content{
 	position: absolute;
-	left: 0;
+	left: 0 !important;
 	top: 55px;
 	background-color:#FFF;
 	width: 236px;
