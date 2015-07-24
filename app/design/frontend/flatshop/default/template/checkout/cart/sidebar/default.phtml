@@ -31,16 +31,16 @@
 ?>
 <li class="item">
     <?php if ($this->hasProductUrl()): ?>
-        <a href="<?php echo $this->getProductUrl()?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><img src="<?php echo $this->getProductThumbnail()->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(72, null)->setWatermarkSize('30x10'); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('checkout_cart_sidebar', $this); ?> width="72" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /></a>
+        <a href="<?php echo $this->getProductUrl()?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><img src="<?php echo $this->getProductThumbnail()->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(72, null)->setWatermarkSize('30x10'); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('checkout_cart_sidebar', $this); ?> width="72" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a>
     <?php else: ?>
-        <span class="product-image"><img src="<?php echo $this->getProductThumbnail()->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(72, null)->setWatermarkSize('30x10'); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('checkout_cart_sidebar', $this); ?> width="72" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /></span>
+        <span class="product-image"><img src="<?php echo $this->getProductThumbnail()->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(72, null)->setWatermarkSize('30x10'); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('checkout_cart_sidebar', $this); ?> width="72" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></span>
     <?php endif; ?>
     <div class="product-details">
-        <a href="<?php echo $this->getDeleteUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove this item from the shopping cart?') ?>');" class="btn-remove"><i class="fa fa-trash-o"></i></a>
+        <a href="<?php echo $this->getDeleteUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove this item from the shopping cart?') ?>');" class="btn-remove"><i class="icon-trash"></i></a>
         <?php if ($isVisibleProduct): ?>        
-        <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item') ?>" class="btn-edit"><i class="fa fa-pencil"></i></a>
+        <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item') ?>" class="btn-edit"><i class="icon-pencil"></i></a>
         <?php endif ?>
-        <p class="product-name"><?php if ($this->hasProductUrl()): ?><a href="<?php echo $this->getProductUrl() ?>"><?php endif; ?><?php echo $this->escapeHtml($this->getProductName()) ?><?php if ($this->hasProductUrl()): ?></a><?php endif; ?></p>
+        <p class="product-name"><?php if ($this->hasProductUrl()): ?><a href="<?php echo $this->getProductUrl() ?>"><?php endif; ?><?php echo $this->htmlEscape($this->getProductName()) ?><?php if ($this->hasProductUrl()): ?></a><?php endif; ?></p>
         <div class="product-box">
         <strong><?php echo $this->getQty() ?></strong> x
 
@@ -128,7 +128,7 @@
           <div class="truncated_full_value">
             <dl class="item-options">
                 <?php foreach ($_options as $_option) : ?>
-                <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+                <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
                 <dd>
                     <?php if (is_array($_option['value'])): ?>
                     <?php echo nl2br(implode("\n", $_option['value'])) ?>

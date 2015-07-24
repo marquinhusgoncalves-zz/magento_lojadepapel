@@ -30,7 +30,7 @@
     <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
         <fieldset>
             <?php echo $this->getChildHtml('form_fields_before')?>
-            <h3><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?></span></h3>
+            <h3><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->htmlEscape($this->getProductInfo()->getName()) ?></span></h3>
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
                 <h4><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h4>
                 <span id="input-message-box"></span>
@@ -69,8 +69,8 @@
                     <li>
                         <div class="input-box">
 							<?php 
-								if($this->escapeHtml($data->getNickname())){
-									$value = $this->escapeHtml($data->getNickname());
+								if($this->htmlEscape($data->getNickname())){
+									$value = $this->htmlEscape($data->getNickname());
 								}else{
 									$value = $this->__('Nickname');
 								}
@@ -80,8 +80,8 @@
                     </li>
                     <li>
                         <?php 
-							if($this->escapeHtml($data->getTitle())){
-								$value = $this->escapeHtml($data->getTitle());
+							if($this->htmlEscape($data->getTitle())){
+								$value = $this->htmlEscape($data->getTitle());
 							}else{
 								$value = $this->__('Summary of Your Review');
 							}
@@ -92,8 +92,8 @@
                     </li>
                     <li>
                         <?php 
-							if($this->escapeHtml($data->getDetail())){
-								$value = $this->escapeHtml($data->getDetail());
+							if($this->htmlEscape($data->getDetail())){
+								$value = $this->htmlEscape($data->getDetail());
 							}else{
 								$value = $this->__('Review');
 							}

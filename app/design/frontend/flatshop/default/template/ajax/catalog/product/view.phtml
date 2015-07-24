@@ -129,9 +129,9 @@
 									<div class="product-name">
 									   <h2><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
 									</div>
-									<!-- Retirei a mensagem seja o primeiro a comentar
+									<!--  Retirei a mensagem seja o primeiro a comentar
 									<?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
-									 -->
+									-->
 									<?php if ($_product->isAvailable()): ?>
 										<p class="availability in-stock"><?php echo $this->helper('catalog')->__('Availability:') ?> <span><?php echo $this->helper('catalog')->__('In stock') ?></span></p>
 									<?php else: ?>
@@ -382,19 +382,18 @@
 	</div>
 	<?php endif; ?>
 	<?php if(MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('relatedblock') == 'sidebar'): ?>
+	
+
+	<!--Desabilitando o trecho de comentários
 	<div class="bottom-product-reviews">
 	<?php endif; ?>
-
-
-	<!--Desabilitando o trecho de comentários 
 	<div class="container_12">
 		<div class="grid_12">
 			<?php // Predefined Static Block
 			if ($static_html = $this->getChildHtml('above_product_collateral')):
 				echo '<div class="above-product-collateral">'.$static_html.'</div>';
 			endif; ?>
-			
-			<?php // Predefined Static Block
+										<?php // Predefined Static Block
 			if ($static_html = $this->getChildHtml('product_banners')):
 				echo '<div class="product-banners">'.$static_html.'</div>';
 			endif; ?>
@@ -407,7 +406,6 @@
 	</div>
 	<?php if(MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('relatedblock') == 'sidebar'): ?>
 	</div> -->
-
 
 	<?php endif; ?>
 </div>

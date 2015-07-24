@@ -1,13 +1,13 @@
 /**
  * These styles is generated automaticaly. Please Do no edit it directly all changes will be lost.
  *//*======Site Bg=======*/
- body.boxed-layout,
+body.boxed-layout,
 .header-slider-holder,
 .content-wrapper{background-color:#F2F2F2;}
 
 
 /*======Skin Color #1=======*/
-.onepagecheckout-index-index .onepagecheckout_loginarea .onepagecheckout_loginlink{color:#F44051;}
+.onepagecheckout-index-index .onepagecheckout_loginarea .onepagecheckout_loginlink{color:#E40043;}
 
 .checkout-cart-index .iwd-ec-col-main .cart-empty #iwd-emptycart-writeup #buttonwrapper .iwdbutton a,
 #onepagecheckout_forgotbox button.button > span,
@@ -69,20 +69,19 @@ header#header .top-cart .block-content .color-box .item.odd,
 #custommenu .color-box .item.odd,
 header#header .top-cart .block-title,
 header#header .form-search button:hover > span,
-button.button > span,
-.header-static h3 {background-color:#F44051;}
+button.button > span{background-color:#E40043;}
 
 
 .cart .totals .checkout-types{
-	background-color:rgba(244,64,81, 0.9);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6F44051,endColorstr=#E6F44051);
+	background-color:rgba(228,0,67, 0.9);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6E40043,endColorstr=#E6E40043);
 	zoom: 1;
 }
 
 button.btn-quick-view:hover i.triangle-topleft,
-span.label-sale .triangle-topleft{border-top-color: #F44051!important;}
+span.label-sale .triangle-topleft{border-top-color: #E40043!important;}
 button.btn-quick-view:hover i.triangle-bottomleft,
-span.label-sale .triangle-bottomleft{border-bottom-color: #F44051!important;}
+span.label-sale .triangle-bottomleft{border-bottom-color: #E40043!important;}
 
 
 /*======Skin Color #2=======*/
@@ -93,7 +92,7 @@ header#header .nav-container #custommenu div.menu a span i.num,
 aside.sidebar section.block-wishlist li.item .product-details .price-box .price,
 #footer .footer-columns-wrapper li a:before,
 header#header .top-cart .product-box,
-#nav li a span.num{color:#2FB9B7;}
+#nav li a span.num{color:#184093;}
 
 .menu-mobile.open > .parentMenu,
 header#header .nav-container #custommenu div.menu.act a,
@@ -147,8 +146,7 @@ header#header .top-cart .block-content .color-box .item.even,
 header#header .form-search button > span,
 #custommenu > div.menu.act > div.parentMenu > a,
 #nav > li.active > a,
-button.button:hover > span,
-.header-static h2 {background-color:#2FB9B7;}
+button.button:hover > span{background-color:#184093;}
 
 
 .onepagecheckout-index-index #onepagecheckout_forgotbox.op_login_area,
@@ -157,9 +155,9 @@ button.button:hover > span,
 #onepagecheckout_orderform .col3-set.onepagecheckout_datafields .col-2,
 #onepagecheckout_orderform .col3-set.onepagecheckout_datafields .col-3,
 button.btn-quick-view i.triangle-topleft,
-span.label-new .triangle-topleft{border-top-color: #2FB9B7!important;}
+span.label-new .triangle-topleft{border-top-color: #184093!important;}
 button.btn-quick-view i.triangle-bottomleft,
-span.label-new .triangle-bottomleft{border-bottom-color: #2FB9B7!important;}
+span.label-new .triangle-bottomleft{border-bottom-color: #184093!important;}
 
 /*======Header=======*/
 /* Header Wrapper */
@@ -168,13 +166,13 @@ header#header{background-color:#FFFFFF;}
 
 /* Navigation text color */
 #nav li a,
-header#header .nav-container #custommenu div.menu a span{color:333333!important;}
+header#header .nav-container #custommenu div.menu a span{color:#333333!important;}
 
 /* Navigation active text color */
 #nav > li.active > a,
 #nav > li.active > a span.num,
 header#header .nav-container #custommenu div.menu.act span i.num,
-header#header .nav-container #custommenu div.menu.act > .parentMenu > a > span{ color:#fff!important; }
+header#header .nav-container #custommenu div.menu.act > .parentMenu > a > span { color:#FFFFFF!important; }
 
 /* Navigation hover bg */
 #nav > li > a:hover,
@@ -184,7 +182,7 @@ header#header .nav-container #custommenu div.menu a:hover{background-color: #EEE
 #nav > li.active > a,
 #custommenu > div.menu.act > div.parentMenu > a,
 #custommenu button.button:hover > span,
-#nav button.button:hover > span{background-color:#2FB9B7!important;}
+#nav button.button:hover > span{background-color:#184093!important;}
 
 /* Navigation button border radius */
 #nav li a:hover,
@@ -214,10 +212,10 @@ header#header .form-search input{color:#999999;}
 header#header .form-search button span span{color:#FFFFFF;}
 
 /* Search form button bg color */
-header#header .form-search button > span{background-color:#2FB9B7;}
+header#header .form-search button > span{background-color:#184093;}
 
 /* Top cart button bg */
-header#header .top-cart .block-title{background-color: #F44051;}
+header#header .top-cart .block-title{background-color: #E40043;}
 
 /* Top cart button text color */
 header#header .top-cart .block-title .title-cart{
@@ -251,7 +249,7 @@ header#header .links li a:hover{
 
 /* Header toolbar links bg hover color */
 header#header .links li a:hover{
-	background-color:#2FB9B7;
+	background-color:#184093;
 }
 
 /* Language + Currency label color */
@@ -300,9 +298,10 @@ body.boxed-layout #footer .footer-columns-wrapper .container_12,
 }
 
 /* Footer list: marker color */
+/*Desabilitado
 #footer .footer-columns-wrapper li a:before{
-	background: #2FB9B7;
-}
+	background: #184093;
+}*/
 
 /* Footer list: link and marker color hover */
 #footer .footer-columns-wrapper li a:hover:before{
@@ -337,22 +336,22 @@ body.boxed-layout #footer .footer-columns-wrapper .container_12,
 
 /* Footer contact form: button color */
 #footer .contacts-footer-content .buttons-set button > span{
-	background-color: #F44051;
+	background-color: #E40043;
 }
 
 /* Footer contact form: button color hover */
 #footer .contacts-footer-content .buttons-set button:hover > span{
-	background-color: #2FB9B7;
+	background-color: #184093;
 }
 
 /* Social Icons: item bg */
 ul.social-links li a {
-	/*background-color:#171717;*/
+	background-color:#DDDDDD;
 }
 
 /* Social Icons: item bg hover */
 ul.social-links li a:hover {
-	background-color:#2FB9B7;
+	background-color:#184093;
 }
 
 /* Social Icons: item color */
@@ -382,13 +381,13 @@ span.label-new{color:#FFFFFF;}
 
 /* Label New bg color */
 span.label-new{
-	background-color: #2FB9B7;
+	background-color: #184093;
 }
 span.label-new .triangle-topleft{
-	border-top-color: #2FB9B7!important;
+	border-top-color: #184093!important;
 }
 span.label-new .triangle-bottomleft {
-    border-bottom-color: #2FB9B7!important;
+    border-bottom-color: #184093!important;
 }
 
 /* Label Sale color */
@@ -396,13 +395,13 @@ span.label-sale{color:#FFFFFF;}
 
 /* Label Sale bg color */
 span.label-sale{
-	background-color: #F44051;
+	background-color: #E40043;
 }
 span.label-sale .triangle-topleft{
-	border-top-color: #F44051!important;
+	border-top-color: #E40043!important;
 }
 span.label-sale .triangle-bottomleft {
-    border-bottom-color: #F44051!important;
+    border-bottom-color: #E40043!important;
 }
 /* Regular Price color */
 .regular-price .price{color:#333333;}

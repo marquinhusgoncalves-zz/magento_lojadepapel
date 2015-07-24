@@ -1,0 +1,50 @@
+<?php $session = Mage::getSingleton('checkout/session'); ?>
+<?php $pgtoArraya = $session->getPgtoarry(); ?>
+<?php $result_decode = $session->getResult_decode(); ?>
+
+	<div class="corpo_transparente grid12-5 alpha">
+		<div class="method-type boleto-title">
+			<h3>Falta apenas um passo para finalizar sua compra.</h3>
+			<h4>Imprima seu boleto e faça o pagamento em qualquer banco.</h4>
+		</div>
+		<button class="btn-transparente btn-boleto buttontransparente" onclick="abre_boleto()" ><img src="<?php echo $this->getSkinUrl('MOIP/transparente/imagem/printer.png') ?>" alt="" />Visualize o boleto<span>clique aqui</span></button>
+		<div class="row boleto-can-pay">
+			<strong>
+				<h3>Você sabia que:</h3>
+			</strong>
+			<h3>Pode pagar o seu boleto bancário pelo celular ou pela internet?</h3>
+		</div>
+	</div>
+	
+
+<!-- js importantes não alterem -->
+<script type="text/javascript">
+//<![CDATA[
+			jQuery(document).ready(function(){
+				jQuery('body').append('<div class="modal" id="showXml" ><div class="modal-header"><button class="close" data-dismiss="modal">x</button><h3>Boleto Bancário - Bradesco</h3></div><div class="modal-body"></div></div>');
+				jQuery('#showXml').modal('toggle');
+			});
+			function abre_boleto(){
+				jQuery('#showXml').modal('toggle');
+			};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+				jQuery(document).ready(function(){
+					jQuery("#token").val("<?php echo $result_decode['token'] ?>");
+					var settings = 
+						<?php echo $this->getJson($pgtoArraya); ?>
+					;
+					MoipWidget(settings);
+					
+				});
+				var sucesso = function(data){
+					jQuery(".modal-body").append("<iframe hspace=\"0\" vspace=\"0\" width=\"650\" height=\"900\"  scrolling= \"no\" frameBorder=\"0\" allowtransparency=\"true\" src=\"<?php echo $this->getUrlAmbiente(); ?>Instrucao.do?token=<?php echo $result_decode['token'] ?>\"> </iframe>");
+				};
+
+				var erroValidacao = function(data){
+					alert(data);
+				};
+//]]>
+</script>

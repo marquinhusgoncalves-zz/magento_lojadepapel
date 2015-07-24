@@ -1,7 +1,4 @@
 "%s","%s"
-"%s role is a special one and can\'t be changed.","Cargo %s é especial e não pode ser alterado."
-"%s role is a special one and can\'t be deleted.","Cargo %s é especial e não pode ser excluido."
-"%s role is protected.","Cargo %s é intocável."
 "ACL Attribute Rules","Regras de Atributos ACL"
 "ACL Attributes Information","Informação de Atributos ACL"
 "Add","Adicionar"

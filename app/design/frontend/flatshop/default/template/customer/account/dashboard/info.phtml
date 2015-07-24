@@ -11,12 +11,12 @@
     <div class="box">
         <div class="box-title">
             <h3><?php echo $this->__('Contact Information') ?></h3>
-            <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><i class="fa fa-pencil"></i></a>
+            <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><i class="icon-pencil"></i></a>
         </div>
         <div class="box-content">
             <p>
-                <?php echo $this->escapeHtml($this->getCustomer()->getName()) ?><br />
-                <?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?><br />
+                <?php echo $this->htmlEscape($this->getCustomer()->getName()) ?><br />
+                <?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?><br />
                 <a href="<?php echo $this->getChangePasswordUrl() ?>"><?php echo $this->__('Change Password') ?></a>
             </p>
         </div>
@@ -27,7 +27,7 @@
     <div class="box">
         <div class="box-title">
             <h3><?php echo $this->__('Newsletters') ?></h3>
-            <a href="<?php echo $this->getUrl('newsletter/manage') ?>"><i class="fa fa-pencil"></i></a>
+            <a href="<?php echo $this->getUrl('newsletter/manage') ?>"><i class="icon-pencil"></i></a>
         </div>
         <div class="box-content">
             <p>

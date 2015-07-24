@@ -31,16 +31,16 @@
  * @see Mage_Checkout_Block_Cart_Crosssell
  */
 ?>
-<?php if($this->getItemCount()): $helpImg = $this->helper('ThemeOptionsFlatshop/images'); ?>
+<?php if($this->getItemCount()): ?>
 <div class="crosssell">
     <div class="ie-fix">
         <h2><?php echo $this->__('Based on your selection, you may be interested in the following items:') ?></h2>
         <ul id="crosssell-products-list">
         <?php foreach ($this->getItems() as $_item): ?>
             <li class="item">
-                <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(190, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('crosssell', $_item); ?> alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+                <a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(190, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('crosssell', $_item); ?> alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
                 <div class="product-details">
-                    <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></h3>
+                    <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
                     <?php echo $this->getPriceHtml($_item, true) ?>
                     <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
                     <ul class="add-to-links">

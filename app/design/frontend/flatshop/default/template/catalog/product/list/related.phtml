@@ -10,7 +10,6 @@
 <?php 
     if($this->getItems()->getSize()):
 	$productpage_collateral_related = MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('productpage_collateral_related');
-    $helpImg = $this->helper('ThemeOptionsFlatshop/images');
 ?>
 <section class="block-related">
     <header>
@@ -23,10 +22,10 @@
             <?php $i=0; foreach($this->getItems() as $_item): ?>
                 <li class="item">
 					<div class="product">
-						<p class="product-name top"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
-						<a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php echo $helpImg->getImg($_item, 'thumbnail', 240, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('related', $_item); ?> alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+						<p class="product-name top"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+						<a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(240, null) ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('related', $_item); ?> alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
 						<div class="product-details">
-							<p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
+							<p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
 							<?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
 								<?php if (!$_item->getRequiredOptions()): ?>
 									<input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
@@ -51,7 +50,7 @@
 	<?php if(MAGE::helper('ThemeOptionsFlatshop')->getThemeOptionsFlatshop('relatedblock') == 'content'): ?>
 		<?php if ($productpage_collateral_related == 'related_slider' && count($this->getItems())>4): ?>
 		<div class = 'next'><i class="fa fa-angle-right"></i></div>
-		<div class = 'prev unselectable'><i class="fa fa-angle-left"></i></div>
+		<div class = 'prev unselectable'><i class="fa-angle-left"></i></div>
 		<?php endif; ?>
 	<?php endif; ?>
     <script type="text/javascript">

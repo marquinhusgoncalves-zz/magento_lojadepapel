@@ -24,7 +24,7 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if(count($this->getItemCollection()->getItems())): $helpImg = $this->helper('ThemeOptionsFlatshop/images'); ?>
+<?php if(count($this->getItemCollection()->getItems())): ?>
 <h2><?php echo $this->__('You may also be interested in the following product(s)') ?></h2>
 <div class="box-collateral box-up-sell">    
     <?php  $this->setColumnCount(4); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
@@ -33,8 +33,8 @@
     <?php $this->resetItemsIterator(); while ($_item=$this->getIterableItem()) : ?>
         <li class="item grid_3 alpha">
 			<div class="indent">
-				<a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>"><img src="<?php echo $helpImg->getImg($_item, 'thumbnail', 420, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('upsell', $_item); ?> alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
-				<h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></h3>
+				<a class="product-image" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(420, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('upsell', $_item); ?> alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+				<h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
 				<?php echo $this->getPriceHtml($_item, true, '-upsell') ?>
 				<?php echo $this->getReviewsSummaryHtml($_item) ?>
 			</div>

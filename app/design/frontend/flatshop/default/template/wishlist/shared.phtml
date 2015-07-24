@@ -25,10 +25,9 @@
  */
 /* @var $this Mage_Wishlist_Block_Share_Wishlist */
 ?>
-<?php $helpImg = $this->helper('ThemeOptionsFlatshop/images'); ?>
 <div class="my-wishlist">
     <div class="page-title">
-        <h1><?php echo $this->escapeHtml($this->getHeader()) ?></h1>
+        <h1><?php echo $this->htmlEscape($this->getHeader()) ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php if ($this->hasWishlistItems()): ?>
@@ -53,7 +52,7 @@
                 ?>
                 <tr>
                     <td>
-                        <a class="product-image" href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>"><img src="<?php echo $helpImg->getImg($product, 'small_image', 210, null); ?>" alt="<?php echo $this->escapeHtml($product->getName()) ?>" /></a>
+                        <a class="product-image" href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(210, null); ?>" alt="<?php echo $this->escapeHtml($product->getName()) ?>" /></a>
                         <h2 class="product-name"><a href="<?php echo $this->getProductUrl($item) ?>"><?php echo $this->escapeHtml($product->getName()) ?></a></h2>
                         <?php echo $this->getPriceHtml($product) ?>
                         <?php echo $this->getDetailsHtml($item) ?>

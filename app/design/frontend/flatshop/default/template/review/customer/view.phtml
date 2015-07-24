@@ -24,20 +24,20 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if($this->getProductData()->getId()): $helpImg = $this->helper('ThemeOptionsFlatshop/images'); ?>
+<?php if($this->getProductData()->getId()): ?>
 <div class="product-review">
     <div class="page-title">
         <h1><?php echo $this->__('Review Details') ?></h1>
     </div>
     <div class="product-img-box">
-        <a href="<?php echo $this->getProductData()->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductData()->getName()) ?>" class="product-image"><img src="<?php echo $helpImg->getImg($this->getProductData(), 'small_image', 125, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('review_customer_view', $this); ?> alt="<?php echo $this->escapeHtml($this->getProductData()->getName()) ?>" /></a>
+        <a href="<?php echo $this->getProductData()->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductData()->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($this->getProductData(), 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(125, null); ?>" <?php echo MAGE::helper('ThemeOptionsFlatshop/Retina')->getRetinaData('review_customer_view', $this); ?> alt="<?php echo $this->htmlEscape($this->getProductData()->getName()) ?>" /></a>
         <?php if( $this->getRating() && $this->getRating()->getSize()): ?>
             <p class="label"><?php echo $this->__('Average Customer Rating:') ?></p>
             <?php echo $this->getReviewsSummaryHtml($this->getProductData()) ?>
         <?php endif; ?>
     </div>
     <div class="product-details">
-        <h2 class="product-name"><?php echo $this->escapeHtml($this->getProductData()->getName()) ?></h2>
+        <h2 class="product-name"><?php echo $this->htmlEscape($this->getProductData()->getName()) ?></h2>
         <?php if( $this->getRating() && $this->getRating()->getSize()): ?>
         <h3><?php echo ($this->isReviewOwner()) ? $this->__('Your Rating:') : $this->__('Rating:'); ?></h3>
         <table class="ratings-table">
@@ -64,7 +64,7 @@
                 <?php endif;?>
             </dt>
             <dd>
-                <?php echo nl2br($this->escapeHtml($this->getReviewData()->getDetail())) ?>
+                <?php echo nl2br($this->htmlEscape($this->getReviewData()->getDetail())) ?>
             </dd>
         </dl>
     </div>

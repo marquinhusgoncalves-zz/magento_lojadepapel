@@ -109,6 +109,7 @@
 "Text Area","Campo Área de Texto"
 "Text Field","Campo Texto"
 "The attribute code \'%s\' is reserved by system. Please try another attribute code","O código do atributo \'%s\' é reservado pelo sistema. Tente outro código"
+"The value of attribute ""%s"" must be unique","O valor do atributo ""%s"" precisa ser único"
 "The value of attribute ""%s"" must be unique.","O valor do atributo ""%s"" precisa ser único."
 "This attribute is used in configurable products","Este atributo é usado em produtos configuráveis"
 "URL","URL"

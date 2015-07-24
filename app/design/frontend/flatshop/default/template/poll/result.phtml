@@ -13,12 +13,12 @@
         <h2><?php echo $this->__('Community Poll') ?></h2>
     </header>
     <div class="block-content">
-        <p class="block-subtitle"><?php echo $this->escapeHtml($poll->getPollTitle()); ?></p>
+        <p class="block-subtitle"><?php echo $this->htmlEscape($poll->getPollTitle()); ?></p>
         <?php if( $poll_answers ): ?>
         <ol id="poll-answers">
             <?php foreach( $poll_answers as $answer ): ?>
                 <li>
-                    <span class="answer"><span><?php echo $this->escapeHtml($answer->getAnswerTitle()) ?>:</span></span>
+                    <span class="answer"><span><?php echo $this->htmlEscape($answer->getAnswerTitle()) ?>:</span></span>
                     <span class="votes"><?php echo $answer->getVotesCount() ?> (<?php echo $answer->getPercent() ?>%)</span>                    
                 </li>
             <?php endforeach; ?>

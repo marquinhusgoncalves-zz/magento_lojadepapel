@@ -36,9 +36,9 @@
             <?php $i=0; foreach ($_items as $_review):?>
                 <li <?php if ($i++%2!==0) echo 'class="even"'; ?>>
                     <div>
-                        <h6><?php echo $this->escapeHtml($_review->getTitle()) ?></h6>
+                        <h6><?php echo $this->htmlEscape($_review->getTitle()) ?></h6>
                         <small><?php 
-                            echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())); 
+                            echo $this->__('Review by <span>%s</span>', $this->htmlEscape($_review->getNickname())); 
                             echo $this->__('on %s', $this->formatDate($_review->getCreatedAt()), 'long') ?></small>
                     </div>
                     <div>
@@ -62,7 +62,7 @@
                         </table>
                         <?php endif; ?>
                         <div class="review-txt">
-                            <?php echo nl2br($this->escapeHtml($_review->getDetail())) ?>
+                            <?php echo nl2br($this->htmlEscape($_review->getDetail())) ?>
                         </div>                        
                     </div>
                 </li>
