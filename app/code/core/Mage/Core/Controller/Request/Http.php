@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Core
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -259,13 +259,9 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
         return $path;
     }
 
-    /**
-     * @param bool $raw
-     * @return string
-     */
-    public function getBaseUrl($raw = false)
+    public function getBaseUrl()
     {
-        $url = parent::getBaseUrl($raw);
+        $url = parent::getBaseUrl();
         $url = str_replace('\\', '/', $url);
         return $url;
     }
@@ -298,11 +294,19 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
         if (!isset($_SERVER['HTTP_HOST'])) {
             return false;
         }
+        $host = $_SERVER['HTTP_HOST'];
         if ($trimPort) {
-            $host = explode(':', $_SERVER['HTTP_HOST']);
-            return $host[0];
+            $hostParts = explode(':', $_SERVER['HTTP_HOST']);
+            $host =  $hostParts[0];
         }
-        return $_SERVER['HTTP_HOST'];
+
+        if (strpos($host, ',') !== false || strpos($host, ';') !== false) {
+            $response = new Zend_Controller_Response_Http();
+            $response->setHttpResponseCode(400)->sendHeaders();
+            exit();
+        }
+
+        return $host;
     }
 
     /**
